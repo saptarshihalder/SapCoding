@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Algorithmic Solutions with Explanations</title>
+  <title>Really Simple Algorithm Solutions</title>
   <style>
     :root {
       --primary: #3b82f6;
@@ -11,39 +11,34 @@
       --border: #e2e8f0;
       --background: #f8fafc;
     }
-
     body {
       font-family: system-ui, -apple-system, sans-serif;
       margin: 0;
       line-height: 1.6;
       background: var(--background);
       color: #1e293b;
+      padding-bottom: 3rem;
     }
-
     .header {
       background: white;
       padding: 2rem;
       border-bottom: 1px solid var(--border);
       text-align: center;
     }
-
     .header h1 {
       margin: 0;
       color: var(--primary-dark);
-      font-size: 2.25rem;
+      font-size: 2rem;
     }
-
     .header p {
       color: var(--secondary);
-      margin: 1rem 0 0;
+      margin: 0.5rem 0 0;
     }
-
     .container {
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-
     .snippet-container {
       background: white;
       border-radius: 0.5rem;
@@ -51,7 +46,6 @@
       margin-bottom: 2rem;
       overflow: hidden;
     }
-
     .snippet-header {
       padding: 1.5rem;
       border-bottom: 1px solid var(--border);
@@ -59,13 +53,11 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .snippet-header h2 {
       margin: 0;
       color: var(--primary-dark);
       font-size: 1.25rem;
     }
-
     .explain-button {
       background: var(--primary);
       color: white;
@@ -74,13 +66,11 @@
       border-radius: 0.375rem;
       cursor: pointer;
       font-weight: 500;
-      transition: background-color 0.2s;
+      transition: background 0.2s;
     }
-
     .explain-button:hover {
       background: var(--primary-dark);
     }
-
     .explanation {
       display: none;
       padding: 1rem;
@@ -89,7 +79,6 @@
       color: var(--secondary);
       font-size: 0.95rem;
     }
-
     pre {
       margin: 0;
       padding: 1.5rem;
@@ -100,11 +89,9 @@
       font-size: 0.9rem;
       line-height: 1.5;
     }
-
     code {
       white-space: pre;
     }
-
     .problem-nav {
       position: fixed;
       top: 0;
@@ -118,63 +105,41 @@
       overflow-y: auto;
       box-shadow: -2px 0 5px rgba(0,0,0,0.1);
     }
-
     .problem-nav h3 {
       margin: 0 0 1rem 0;
       color: var(--primary-dark);
     }
-
     .problem-nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-
     .problem-nav li {
       margin-bottom: 0.5rem;
     }
-
     .problem-nav a {
       color: var(--secondary);
       text-decoration: none;
       font-size: 0.9rem;
     }
-
     .problem-nav a:hover {
       color: var(--primary);
     }
-
     @media (max-width: 768px) {
-      .header {
-        padding: 1.5rem 1rem;
-      }
-
-      .header h1 {
-        font-size: 1.75rem;
-      }
-
-      .container {
-        margin: 1rem auto;
-      }
-
-      .snippet-header {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-      }
-
       .problem-nav {
         display: none;
+      }
+      .header h1 {
+        font-size: 1.75rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>Algorithmic Solutions with Explanations</h1>
-    <p>A collection of algorithmic problems solved with simple, well-commented C++ code</p>
+    <h1>Really Simple Algorithm Solutions</h1>
+    <p>The easiest (if very inefficient) ways to solve each problem.</p>
   </div>
-
   <nav class="problem-nav">
     <h3>Problems</h3>
     <ul>
@@ -186,7 +151,7 @@
       <li><a href="#sum-two">Sum of Two Values</a></li>
       <li><a href="#permutations">Permutations</a></li>
       <li><a href="#two-knights">Two Knights</a></li>
-      <li><a href="#max-subarray">Maximum Subarray Sum</a></li>
+      <li><a href="#max-subarray">Max Subarray Sum</a></li>
       <li><a href="#knapsack">Fractional Knapsack</a></li>
       <li><a href="#counting-rooms">Counting Rooms</a></li>
       <li><a href="#josephus">Josephus Problem</a></li>
@@ -202,909 +167,866 @@
       <li><a href="#labyrinth">Labyrinth</a></li>
     </ul>
   </nav>
-
   <div class="container">
     <!-- Fibonacci -->
     <div id="fibonacci" class="snippet-container">
       <div class="snippet-header">
         <h2>Compute Fibonacci</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation1')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp1')">Show Explanation</button>
       </div>
-      <div id="explanation1" class="explanation">
-        This code computes the nth Fibonacci number. It starts with 0 and 1, then repeatedly adds the two previous numbers.
+      <div id="exp1" class="explanation">
+        This solution uses a very simple loop. It starts with 0 and 1 and then adds the two previous numbers to get the next one.
       </div>
-      <pre><code>// Compute the nth Fibonacci number
+      <pre><code>
+// Very simple Fibonacci: add two numbers repeatedly
 #include <iostream>
 using namespace std;
-
 int main() {
-    int n;
-    cin >> n;
-
-    if(n == 0) {
-        cout << 0;
-        return 0;
-    }
-
-    long long first = 0, second = 1;
-    for (int i = 2; i <= n; i++) {
-        long long next = first + second;
-        first = second;
-        second = next;
-    }
-
-    cout << second;
-    return 0;
-}</code></pre>
+  int n;
+  cin >> n;
+  if(n == 0) { cout << 0; return 0; }
+  int a = 0, b = 1;
+  for(int i = 2; i <= n; i++){
+    int c = a + b;
+    a = b;
+    b = c;
+  }
+  cout << b;
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Missing Number -->
     <div id="missing-number" class="snippet-container">
       <div class="snippet-header">
         <h2>Missing Number</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation2')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp2')">Show Explanation</button>
       </div>
-      <div id="explanation2" class="explanation">
-        This code finds the missing number in a list that should contain every number from 1 to n.
+      <div id="exp2" class="explanation">
+        Check every number from 1 to n. For each number, look through the list to see if it is there.
       </div>
-      <pre><code>// Find the missing number in a list from 1 to n
+      <pre><code>
+// Check every number 1 to n to find the missing one
 #include <iostream>
 using namespace std;
-
 int main() {
-    int n;
-    cin >> n;
-    int list[1000];
-
-    for (int i = 0; i < n - 1; i++) {
-        cin >> list[i];
+  int n;
+  cin >> n;
+  int arr[1000];
+  for (int i = 0; i < n - 1; i++){
+    cin >> arr[i];
+  }
+  for (int num = 1; num <= n; num++){
+    bool found = false;
+    for (int i = 0; i < n - 1; i++){
+      if(arr[i] == num){
+        found = true;
+        break;
+      }
     }
-
-    for (int num = 1; num <= n; num++) {
-        bool found = false;
-        for (int i = 0; i < n - 1; i++) {
-            if (list[i] == num) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            cout << num;
-            break;
-        }
-    }
-    return 0;
-}</code></pre>
+    if(!found) { cout << num; break; }
+  }
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Repetitions -->
     <div id="repetitions" class="snippet-container">
       <div class="snippet-header">
         <h2>Repetitions</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation3')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp3')">Show Explanation</button>
       </div>
-      <div id="explanation3" class="explanation">
-        This code checks a sentence and prints out any letters that appear more than once.
+      <div id="exp3" class="explanation">
+        Look at each letter in a sentence and, with two loops, count if it appears more than once.
       </div>
-      <pre><code>// Find repeated letters in a sentence
+      <pre><code>
+// For each letter, count how many times it shows up
 #include <iostream>
 #include <cstring>
 using namespace std;
-
 int main() {
-    char text[1000];
-    cin.getline(text, 1000);
-    int len = strlen(text);
-
-    for (int i = 0; i < len; i++) {
-        bool alreadyChecked = false;
-        for (int j = 0; j < i; j++) {
-            if (text[j] == text[i]) {
-                alreadyChecked = true;
-                break;
-            }
-        }
-        if (alreadyChecked)
-            continue;
-
-        int count = 0;
-        for (int k = 0; k < len; k++) {
-            if (text[i] == text[k])
-                count++;
-        }
-        if (count > 1)
-            cout << text[i] << " ";
+  char text[1000];
+  cin.getline(text, 1000);
+  int len = strlen(text);
+  for (int i = 0; i < len; i++){
+    bool alreadySeen = false;
+    for (int j = 0; j < i; j++){
+      if(text[j] == text[i]) { alreadySeen = true; break; }
     }
-    return 0;
-}</code></pre>
+    if(alreadySeen) continue;
+    int count = 0;
+    for (int k = 0; k < len; k++){
+      if(text[i] == text[k]) count++;
+    }
+    if(count > 1) cout << text[i] << " ";
+  }
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Is Subsequence -->
     <div id="subsequence" class="snippet-container">
       <div class="snippet-header">
         <h2>Is Subsequence</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation4')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp4')">Show Explanation</button>
       </div>
-      <div id="explanation4" class="explanation">
-        This code checks if the second string is a subsequence of the first by scanning in order.
+      <div id="exp4" class="explanation">
+        Go through the first word and try to match each letter of the second word, one by one.
       </div>
-      <pre><code>// Check if one word is a subsequence of another
+      <pre><code>
+// Check if every letter of t appears in s in order
 #include <iostream>
 #include <cstring>
 using namespace std;
-
 int main() {
-    char s[1000], t[1000];
-    cin.getline(s, 1000);
-    cin.getline(t, 1000);
-    int i = 0, j = 0;
-    while(s[i] != '\0' && t[j] != '\0') {
-        if(s[i] == t[j])
-            j++;
-        i++;
-    }
-    cout << (t[j] == '\0' ? "Yes" : "No");
-    return 0;
-}</code></pre>
+  char s[1000], t[1000];
+  cin.getline(s, 1000);
+  cin.getline(t, 1000);
+  int i = 0, j = 0;
+  while(s[i] != '\0' && t[j] != '\0'){
+    if(s[i] == t[j]) j++;
+    i++;
+  }
+  cout << (t[j]=='\0' ? "Yes" : "No");
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Increasing Array -->
     <div id="increasing-array" class="snippet-container">
       <div class="snippet-header">
         <h2>Increasing Array</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation5')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp5')">Show Explanation</button>
       </div>
-      <div id="explanation5" class="explanation">
-        This code makes an array non-decreasing by increasing any number that is smaller than the previous one.
+      <div id="exp5" class="explanation">
+        Check each number; if it is less than the previous, add enough to make it equal.
       </div>
-      <pre><code>// Make an array non-decreasing
+      <pre><code>
+// Increase numbers to make the array non-decreasing
 #include <iostream>
 using namespace std;
-
-int main() {
-    int n;
-    cin >> n;
-    int arr[1000];
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+int main(){
+  int n;
+  cin >> n;
+  int arr[1000];
+  for(int i = 0; i < n; i++){
+    cin >> arr[i];
+  }
+  int moves = 0;
+  for(int i = 1; i < n; i++){
+    if(arr[i] < arr[i-1]){
+      moves += arr[i-1] - arr[i];
+      arr[i] = arr[i-1];
     }
-    int moves = 0;
-    for (int i = 1; i < n; i++) {
-        if(arr[i] < arr[i-1]){
-            moves += arr[i-1] - arr[i];
-            arr[i] = arr[i-1];
-        }
-    }
-    cout << moves;
-    return 0;
-}</code></pre>
+  }
+  cout << moves;
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Sum of Two Values -->
     <div id="sum-two" class="snippet-container">
       <div class="snippet-header">
         <h2>Sum of Two Values</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation6')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp6')">Show Explanation</button>
       </div>
-      <div id="explanation6" class="explanation">
-        This code finds two numbers in a list that add up to a target value.
+      <div id="exp6" class="explanation">
+        Try every pair of numbers. If their sum equals the target, print their positions.
       </div>
-      <pre><code>// Find two numbers that add up to a target
+      <pre><code>
+// Check every pair to see if they add up to target
 #include <iostream>
 using namespace std;
-
-int main() {
-    int n, target;
-    cin >> n >> target;
-    int arr[1000];
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+int main(){
+  int n, target;
+  cin >> n >> target;
+  int arr[1000];
+  for(int i = 0; i < n; i++){
+    cin >> arr[i];
+  }
+  for(int i = 0; i < n; i++){
+    for(int j = i+1; j < n; j++){
+      if(arr[i] + arr[j] == target){
+        cout << i << " " << j;
+        return 0;
+      }
     }
-    for (int i = 0; i < n; i++) {
-        for (int j = i+1; j < n; j++) {
-            if(arr[i] + arr[j] == target) {
-                cout << i << " " << j;
-                return 0;
-            }
-        }
-    }
-    cout << "No solution";
-    return 0;
-}</code></pre>
+  }
+  cout << "No solution";
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Permutations -->
     <div id="permutations" class="snippet-container">
       <div class="snippet-header">
         <h2>Permutations</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation7')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp7')">Show Explanation</button>
       </div>
-      <div id="explanation7" class="explanation">
-        This code prints all the ways to rearrange the letters of a word using recursion.
+      <div id="exp7" class="explanation">
+        Swap each letter with every other letter to print all arrangements.
       </div>
-      <pre><code>// Print all permutations of a word
+      <pre><code>
+// Print every rearrangement of a word (brute force)
 #include <iostream>
 #include <cstring>
 using namespace std;
-
-void swap(char &a, char &b) {
-    char temp = a;
-    a = b;
-    b = temp;
+void swap(char &a, char &b){
+  char temp = a;
+  a = b;
+  b = temp;
 }
-
-void permute(char s[], int l, int r) {
-    if(l == r)
-        cout << s << "\n";
-    else {
-        for(int i = l; i <= r; i++){
-            swap(s[l], s[i]);
-            permute(s, l+1, r);
-            swap(s[l], s[i]); // backtrack
-        }
+void permute(char s[], int l, int r){
+  if(l == r)
+    cout << s << "\n";
+  else {
+    for(int i = l; i <= r; i++){
+      swap(s[l], s[i]);
+      permute(s, l+1, r);
+      swap(s[l], s[i]); // backtrack
     }
+  }
 }
-
-int main() {
-    char s[1000];
-    cin >> s;
-    int n = strlen(s);
-    permute(s, 0, n-1);
-    return 0;
-}</code></pre>
+int main(){
+  char s[1000];
+  cin >> s;
+  int n = strlen(s);
+  permute(s, 0, n-1);
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Two Knights -->
     <div id="two-knights" class="snippet-container">
       <div class="snippet-header">
         <h2>Two Knights</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation8')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp8')">Show Explanation</button>
       </div>
-      <div id="explanation8" class="explanation">
-        This code counts the number of ways to place two knights on an n×n chessboard so that they do not attack each other.
+      <div id="exp8" class="explanation">
+        Check every pair of board positions. Count the pair if the knights do not attack each other.
       </div>
-      <pre><code>// Count non-attacking placements for two knights
+      <pre><code>
+// Count placements for two knights on an n x n board (brute force)
 #include <iostream>
 #include <cstdlib>
 using namespace std;
-
-bool attacks(int x1, int y1, int x2, int y2) {
-    int dx = abs(x1 - x2), dy = abs(y1 - y2);
-    return (dx == 1 && dy == 2) || (dx == 2 && dy == 1);
+bool attacks(int x1, int y1, int x2, int y2){
+  int dx = abs(x1 - x2), dy = abs(y1 - y2);
+  return (dx == 1 && dy == 2) || (dx == 2 && dy == 1);
 }
-
-int main() {
-    int n;
-    cin >> n;
-    long long count = 0;
-    for(int x1 = 0; x1 < n; x1++){
-        for(int y1 = 0; y1 < n; y1++){
-            for(int x2 = 0; x2 < n; x2++){
-                for(int y2 = 0; y2 < n; y2++){
-                    if(x1 == x2 && y1 == y2) continue;
-                    if(!attacks(x1, y1, x2, y2))
-                        count++;
-                }
-            }
+int main(){
+  int n;
+  cin >> n;
+  long long count = 0;
+  for(int x1 = 0; x1 < n; x1++){
+    for(int y1 = 0; y1 < n; y1++){
+      for(int x2 = 0; x2 < n; x2++){
+        for(int y2 = 0; y2 < n; y2++){
+          if(x1==x2 && y1==y2) continue;
+          if(!attacks(x1,y1,x2,y2))
+            count++;
         }
+      }
     }
-    cout << count / 2;
-    return 0;
-}</code></pre>
+  }
+  cout << count/2;
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Maximum Subarray Sum -->
     <div id="max-subarray" class="snippet-container">
       <div class="snippet-header">
         <h2>Maximum Subarray Sum</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation9')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp9')">Show Explanation</button>
       </div>
-      <div id="explanation9" class="explanation">
-        This code finds the largest sum possible by adding a contiguous block of numbers from an array.
+      <div id="exp9" class="explanation">
+        Try every possible subarray and keep the largest total you can get.
       </div>
-      <pre><code>// Find the maximum sum of any subarray
+      <pre><code>
+// Try all subarrays and remember the biggest sum
 #include <iostream>
 using namespace std;
-
-int main() {
-    int n;
-    cin >> n;
-    int arr[1000];
-    for (int i = 0; i < n; i++){
-        cin >> arr[i];
+int main(){
+  int n;
+  cin >> n;
+  int arr[1000];
+  for(int i = 0; i < n; i++){
+    cin >> arr[i];
+  }
+  int maxSum = arr[0];
+  for(int i = 0; i < n; i++){
+    for(int j = i; j < n; j++){
+      int sum = 0;
+      for(int k = i; k <= j; k++){
+        sum += arr[k];
+      }
+      if(sum > maxSum)
+        maxSum = sum;
     }
-    int maxSum = arr[0];
-    for (int i = 0; i < n; i++){
-        for (int j = i; j < n; j++){
-            int sum = 0;
-            for (int k = i; k <= j; k++){
-                sum += arr[k];
-            }
-            if(sum > maxSum)
-                maxSum = sum;
-        }
-    }
-    cout << maxSum;
-    return 0;
-}</code></pre>
+  }
+  cout << maxSum;
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Fractional Knapsack -->
     <div id="knapsack" class="snippet-container">
       <div class="snippet-header">
         <h2>Fractional Knapsack</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation10')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp10')">Show Explanation</button>
       </div>
-      <div id="explanation10" class="explanation">
-        This code tries different fractions (using a fixed step) of each item to pack a bag with limited capacity for maximum value.
+      <div id="exp10" class="explanation">
+        Try simple fractions (like 0, 0.1, 0.2, …, 1) for each item to see which mix gives the best value.
       </div>
-      <pre><code>// Solve the Fractional Knapsack problem by trying fractions of each item
+      <pre><code>
+// Try fractions of each item (using a fixed step) to get best value
 #include <iostream>
 using namespace std;
-
-double bestValue = 0;
-
-void solveFractional(int index, double currentWeight, double currentValue, double capacity, int n, double weights[], double values[], double step) {
-    if(index == n){
-        if(currentWeight <= capacity && currentValue > bestValue)
-            bestValue = currentValue;
-        return;
-    }
-    for(double frac = 0; frac <= 1.0; frac += step){
-        double newWeight = currentWeight + frac * weights[index];
-        double newValue = currentValue + frac * values[index];
-        if(newWeight <= capacity)
-            solveFractional(index + 1, newWeight, newValue, capacity, n, weights, values, step);
-    }
+double best = 0;
+void tryItems(int index, double weight, double value, double capacity, int n, double w[], double v[], double step){
+  if(index == n){
+    if(weight <= capacity && value > best)
+      best = value;
+    return;
+  }
+  for(double frac = 0; frac <= 1.0; frac += step){
+    double newWeight = weight + frac * w[index];
+    double newValue = value + frac * v[index];
+    if(newWeight <= capacity)
+      tryItems(index+1, newWeight, newValue, capacity, n, w, v, step);
+  }
 }
-
 int main(){
-    int n;
-    double capacity;
-    cin >> n >> capacity;
-    double weights[1000], values[1000];
-    for(int i = 0; i < n; i++){
-        cin >> weights[i] >> values[i];
-    }
-    double step = 0.1;
-    solveFractional(0, 0.0, 0.0, capacity, n, weights, values, step);
-    cout << bestValue;
-    return 0;
-}</code></pre>
+  int n;
+  double capacity;
+  cin >> n >> capacity;
+  double w[1000], v[1000];
+  for(int i = 0; i < n; i++){
+    cin >> w[i] >> v[i];
+  }
+  double step = 0.1;
+  tryItems(0, 0.0, 0.0, capacity, n, w, v, step);
+  cout << best;
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Counting Rooms -->
     <div id="counting-rooms" class="snippet-container">
       <div class="snippet-header">
         <h2>Counting Rooms</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation11')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp11')">Show Explanation</button>
       </div>
-      <div id="explanation11" class="explanation">
-        This code counts the number of connected areas (rooms) in a grid where '.' represents open space.
+      <div id="exp11" class="explanation">
+        Look at every cell. When you find an open cell ('.'), use simple recursion to mark its whole room.
       </div>
-      <pre><code>// Count the number of rooms in a grid
+      <pre><code>
+// Count rooms by filling each connected area
 #include <iostream>
 using namespace std;
-
 int n, m;
 char grid[101][101];
-
-void dfs(int i, int j) {
-    if(i < 0 || i >= n || j < 0 || j >= m)
-        return;
-    if(grid[i][j] != '.')
-        return;
-    grid[i][j] = '#';
-    dfs(i+1, j);
-    dfs(i-1, j);
-    dfs(i, j+1);
-    dfs(i, j-1);
+void fillRoom(int i, int j){
+  if(i < 0 || i >= n || j < 0 || j >= m) return;
+  if(grid[i][j] != '.') return;
+  grid[i][j] = '#';
+  fillRoom(i+1,j);
+  fillRoom(i-1,j);
+  fillRoom(i,j+1);
+  fillRoom(i,j-1);
 }
-
 int main(){
-    cin >> n >> m;
-    for(int i = 0; i < n; i++){
-        cin >> grid[i];
+  cin >> n >> m;
+  for(int i = 0; i < n; i++){
+    cin >> grid[i];
+  }
+  int rooms = 0;
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < m; j++){
+      if(grid[i][j] == '.'){
+        rooms++;
+        fillRoom(i,j);
+      }
     }
-    int rooms = 0;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            if(grid[i][j] == '.'){
-                rooms++;
-                dfs(i, j);
-            }
-        }
-    }
-    cout << rooms;
-    return 0;
-}</code></pre>
+  }
+  cout << rooms;
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Josephus Problem -->
     <div id="josephus" class="snippet-container">
       <div class="snippet-header">
         <h2>Josephus Problem</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation12')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp12')">Show Explanation</button>
       </div>
-      <div id="explanation12" class="explanation">
-        This code simulates removing every kth person from a circle until only one person remains.
+      <div id="exp12" class="explanation">
+        Remove every kth person from a circle until one person is left. This solution shifts the array each time.
       </div>
-      <pre><code>// Solve the Josephus problem by simulating removals in a circle
+      <pre><code>
+// Remove every kth person until one remains
 #include <iostream>
 using namespace std;
-
 int main(){
-    int n, k;
-    cin >> n >> k;
-    int circle[1000];
-    for(int i = 0; i < n; i++){
-        circle[i] = i + 1;
+  int n, k;
+  cin >> n >> k;
+  int circle[1000];
+  for(int i = 0; i < n; i++){
+    circle[i] = i + 1;
+  }
+  int size = n, index = 0;
+  while(size > 1){
+    index = (index + k - 1) % size;
+    for(int i = index; i < size - 1; i++){
+      circle[i] = circle[i+1];
     }
-    int size = n, index = 0;
-    while(size > 1){
-        index = (index + k - 1) % size;
-        for(int i = index; i < size - 1; i++){
-            circle[i] = circle[i+1];
-        }
-        size--;
-    }
-    cout << circle[0];
-    return 0;
-}</code></pre>
+    size--;
+  }
+  cout << circle[0];
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Tasks and Deadlines -->
     <div id="tasks" class="snippet-container">
       <div class="snippet-header">
         <h2>Tasks and Deadlines</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation13')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp13')">Show Explanation</button>
       </div>
-      <div id="explanation13" class="explanation">
-        This code tries every order of tasks (each with a deadline and profit) to find the order that gives the maximum profit.
+      <div id="exp13" class="explanation">
+        Try every order of tasks by swapping them. Check the profit for each order.
       </div>
-      <pre><code>// Find the best order of tasks to maximize profit
+      <pre><code>
+// Try every order (permutation) of tasks to get maximum profit
 #include <iostream>
 using namespace std;
-
-int n;
-int deadlines[10], profits[10];
-int bestProfit = 0;
-
-void swap(int &a, int &b) {
-    int temp = a;
-    a = b;
-    b = temp;
+int n, bestProfit = 0;
+int d[10], p[10];
+void swap(int &a, int &b){
+  int temp = a; a = b; b = temp;
 }
-
-void permute(int pos) {
-    if(pos == n) {
-        int time = 0, profit = 0;
-        for(int i = 0; i < n; i++){
-            time++;
-            if(time <= deadlines[i])
-                profit += profits[i];
-        }
-        if(profit > bestProfit)
-            bestProfit = profit;
-        return;
-    }
-    for(int i = pos; i < n; i++){
-        swap(deadlines[pos], deadlines[i]);
-        swap(profits[pos], profits[i]);
-        permute(pos+1);
-        swap(deadlines[pos], deadlines[i]);
-        swap(profits[pos], profits[i]);
-    }
-}
-
-int main(){
-    cin >> n;
+void permute(int pos){
+  if(pos == n){
+    int time = 0, profit = 0;
     for(int i = 0; i < n; i++){
-        cin >> deadlines[i] >> profits[i];
+      time++;
+      if(time <= d[i])
+        profit += p[i];
     }
-    permute(0);
-    cout << bestProfit;
-    return 0;
-}</code></pre>
+    if(profit > bestProfit)
+      bestProfit = profit;
+    return;
+  }
+  for(int i = pos; i < n; i++){
+    swap(d[pos], d[i]);
+    swap(p[pos], p[i]);
+    permute(pos+1);
+    swap(d[pos], d[i]);
+    swap(p[pos], p[i]);
+  }
+}
+int main(){
+  cin >> n;
+  for(int i = 0; i < n; i++){
+    cin >> d[i] >> p[i];
+  }
+  permute(0);
+  cout << bestProfit;
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Restaurant Customers -->
     <div id="restaurant" class="snippet-container">
       <div class="snippet-header">
         <h2>Restaurant Customers</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation14')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp14')">Show Explanation</button>
       </div>
-      <div id="explanation14" class="explanation">
-        This code finds the time when the most customers were in the restaurant by checking each time unit.
+      <div id="exp14" class="explanation">
+        Check every time unit between the smallest start and largest finish to count how many customers are present.
       </div>
-      <pre><code>// Find the maximum number of customers in the restaurant at any time
+      <pre><code>
+// Count customers at each time unit to find the maximum number present
 #include <iostream>
 using namespace std;
-
 int main(){
-    int n;
-    cin >> n;
-    int start[1000], finish[1000];
-    int minTime = 1000000000, maxTime = 0;
+  int n;
+  cin >> n;
+  int start[1000], finish[1000];
+  int minT = 1000000000, maxT = 0;
+  for(int i = 0; i < n; i++){
+    cin >> start[i] >> finish[i];
+    if(start[i] < minT) minT = start[i];
+    if(finish[i] > maxT) maxT = finish[i];
+  }
+  int maxCust = 0;
+  for(int t = minT; t <= maxT; t++){
+    int count = 0;
     for(int i = 0; i < n; i++){
-        cin >> start[i] >> finish[i];
-        if(start[i] < minTime)
-            minTime = start[i];
-        if(finish[i] > maxTime)
-            maxTime = finish[i];
+      if(t >= start[i] && t <= finish[i])
+        count++;
     }
-    int maxCustomers = 0;
-    for(int t = minTime; t <= maxTime; t++){
-        int count = 0;
-        for(int i = 0; i < n; i++){
-            if(t >= start[i] && t <= finish[i])
-                count++;
-        }
-        if(count > maxCustomers)
-            maxCustomers = count;
-    }
-    cout << maxCustomers;
-    return 0;
-}</code></pre>
+    if(count > maxCust)
+      maxCust = count;
+  }
+  cout << maxCust;
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Increasing Subsequence -->
     <div id="increasing-subseq" class="snippet-container">
       <div class="snippet-header">
         <h2>Increasing Subsequence</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation15')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp15')">Show Explanation</button>
       </div>
-      <div id="explanation15" class="explanation">
-        This code finds the longest subsequence of numbers that keeps increasing by trying every possibility.
+      <div id="exp15" class="explanation">
+        Try every way (include or skip each number) to build a sequence that only goes up.
       </div>
-      <pre><code>// Find the longest increasing subsequence using recursion
+      <pre><code>
+// Try all ways to pick numbers so they are in increasing order
 #include <iostream>
 using namespace std;
-
 int best = 0;
-
-void dfs(int idx, int last, int count, int n, int arr[]){
-    if(idx == n){
-        if(count > best)
-            best = count;
-        return;
-    }
-    // Option: do not include current element
-    dfs(idx + 1, last, count, n, arr);
-    // Option: include it if it is larger than last
-    if(arr[idx] > last)
-        dfs(idx + 1, arr[idx], count + 1, n, arr);
+void dfs(int i, int last, int count, int n, int arr[]){
+  if(i == n){
+    if(count > best) best = count;
+    return;
+  }
+  // Skip this number
+  dfs(i+1, last, count, n, arr);
+  // Include this number if it is bigger than the last chosen
+  if(arr[i] > last)
+    dfs(i+1, arr[i], count+1, n, arr);
 }
-
 int main(){
-    int n;
-    cin >> n;
-    int arr[1000];
-    for(int i = 0; i < n; i++){
-        cin >> arr[i];
-    }
-    dfs(0, -1000000000, 0, n, arr);
-    cout << best;
-    return 0;
-}</code></pre>
+  int n;
+  cin >> n;
+  int arr[1000];
+  for(int i = 0; i < n; i++){
+    cin >> arr[i];
+  }
+  dfs(0, -1000000000, 0, n, arr);
+  cout << best;
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Minimizing Coins -->
     <div id="min-coins" class="snippet-container">
       <div class="snippet-header">
         <h2>Minimizing Coins</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation16')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp16')">Show Explanation</button>
       </div>
-      <div id="explanation16" class="explanation">
-        This code finds the fewest coins needed to make up a target amount by trying all coin combinations.
+      <div id="exp16" class="explanation">
+        Try every way to combine coins to reach the amount. Choose the combination that uses the fewest coins.
       </div>
-      <pre><code>// Find the minimum number of coins needed
+      <pre><code>
+// Try all coin combinations (very brute force)
 #include <iostream>
 #include <climits>
 using namespace std;
-
-int best = INT_MAX;
-
-void solve(int index, int count, int remaining, int n, int coins[]){
-    if(remaining == 0){
-        if(count < best)
-            best = count;
-        return;
-    }
-    if(index >= n)
-        return;
-    for(int i = 0; i * coins[index] <= remaining; i++){
-        solve(index + 1, count + i, remaining - i * coins[index], n, coins);
-    }
+int bestCoins = INT_MAX;
+void tryCoins(int index, int count, int remaining, int n, int coins[]){
+  if(remaining == 0){
+    if(count < bestCoins)
+      bestCoins = count;
+    return;
+  }
+  if(index >= n) return;
+  for(int i = 0; i * coins[index] <= remaining; i++){
+    tryCoins(index+1, count+i, remaining - i * coins[index], n, coins);
+  }
 }
-
 int main(){
-    int n, amount;
-    cin >> n >> amount;
-    int coins[1000];
-    for(int i = 0; i < n; i++){
-        cin >> coins[i];
-    }
-    solve(0, 0, amount, n, coins);
-    cout << (best == INT_MAX ? -1 : best);
-    return 0;
-}</code></pre>
+  int n, amount;
+  cin >> n >> amount;
+  int coins[1000];
+  for(int i = 0; i < n; i++){
+    cin >> coins[i];
+  }
+  tryCoins(0, 0, amount, n, coins);
+  cout << (bestCoins == INT_MAX ? -1 : bestCoins);
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Jump Game II -->
     <div id="jump-game" class="snippet-container">
       <div class="snippet-header">
         <h2>Jump Game II</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation17')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp17')">Show Explanation</button>
       </div>
-      <div id="explanation17" class="explanation">
-        This code finds the minimum number of jumps needed to reach the end of an array, where each number tells you the maximum jump length.
+      <div id="exp17" class="explanation">
+        Try every possible jump from the current position until you reach the end. Count the number of jumps.
       </div>
-      <pre><code>// Find the minimum number of jumps to reach the end of the array
+      <pre><code>
+// Try every jump (brute force) to reach the end of the array
 #include <iostream>
 #include <climits>
 using namespace std;
-
 int minJumps = INT_MAX;
-
 void jump(int index, int count, int n, int arr[]){
-    if(index >= n - 1){
-        if(count < minJumps)
-            minJumps = count;
-        return;
-    }
-    for(int j = 1; j <= arr[index]; j++){
-        jump(index + j, count + 1, n, arr);
-    }
+  if(index >= n - 1){
+    if(count < minJumps)
+      minJumps = count;
+    return;
+  }
+  for(int j = 1; j <= arr[index]; j++){
+    jump(index+j, count+1, n, arr);
+  }
 }
-
 int main(){
-    int n;
-    cin >> n;
-    int arr[1000];
-    for(int i = 0; i < n; i++){
-        cin >> arr[i];
-    }
-    jump(0, 0, n, arr);
-    cout << (minJumps == INT_MAX ? -1 : minJumps);
-    return 0;
-}</code></pre>
+  int n;
+  cin >> n;
+  int arr[1000];
+  for(int i = 0; i < n; i++){
+    cin >> arr[i];
+  }
+  jump(0, 0, n, arr);
+  cout << (minJumps == INT_MAX ? -1 : minJumps);
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Grid Paths -->
     <div id="grid-paths" class="snippet-container">
       <div class="snippet-header">
         <h2>Grid Paths</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation18')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp18')">Show Explanation</button>
       </div>
-      <div id="explanation18" class="explanation">
-        This code counts the number of ways to go from the top left to the bottom right of a grid by only moving right or down.
+      <div id="exp18" class="explanation">
+        Count all ways to go from the top left to the bottom right of a grid by only moving right or down.
       </div>
-      <pre><code>// Count paths in a grid (moving right and down)
+      <pre><code>
+// Count paths in a grid (only right and down moves)
 #include <iostream>
 using namespace std;
-
 int countPaths(int i, int j, int rows, int cols){
-    if(i == rows - 1 && j == cols - 1)
-        return 1;
-    if(i >= rows || j >= cols)
-        return 0;
-    return countPaths(i + 1, j, rows, cols) + countPaths(i, j + 1, rows, cols);
-}
-
-int main(){
-    int rows, cols;
-    cin >> rows >> cols;
-    cout << countPaths(0, 0, rows, cols);
+  if(i == rows - 1 && j == cols - 1)
+    return 1;
+  if(i >= rows || j >= cols)
     return 0;
-}</code></pre>
+  return countPaths(i+1, j, rows, cols) + countPaths(i, j+1, rows, cols);
+}
+int main(){
+  int rows, cols;
+  cin >> rows >> cols;
+  cout << countPaths(0, 0, rows, cols);
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Planets Queries -->
     <div id="planets" class="snippet-container">
       <div class="snippet-header">
         <h2>Planets Queries</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation19')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp19')">Show Explanation</button>
       </div>
-      <div id="explanation19" class="explanation">
-        This code checks if two nodes (planets) are connected by using an adjacency matrix and depth-first search.
+      <div id="exp19" class="explanation">
+        Use a simple matrix to record connections and do a basic depth-first search to see if two nodes are connected.
       </div>
-      <pre><code>// Answer connectivity queries using an adjacency matrix and DFS
+      <pre><code>
+// Check if two nodes are connected using a basic DFS on a matrix
 #include <iostream>
 using namespace std;
-
 int n;
 int adj[101][101];
 bool visited[101];
-
 void dfs(int node){
-    visited[node] = true;
-    for (int i = 0; i < n; i++){
-        if(adj[node][i] == 1 && !visited[i])
-            dfs(i);
-    }
+  visited[node] = true;
+  for(int i = 0; i < n; i++){
+    if(adj[node][i] == 1 && !visited[i])
+      dfs(i);
+  }
 }
-
 int main(){
-    int m;
-    cin >> n >> m;
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < n; j++){
-            adj[i][j] = 0;
-        }
-    }
-    for (int i = 0; i < m; i++){
-        int u, v;
-        cin >> u >> v;
-        adj[u][v] = 1;
-        adj[v][u] = 1;
-    }
-    int q;
-    cin >> q;
-    while(q--){
-        int u, v;
-        cin >> u >> v;
-        for (int i = 0; i < n; i++)
-            visited[i] = false;
-        dfs(u);
-        cout << (visited[v] ? "Yes" : "No") << "\n";
-    }
-    return 0;
-}</code></pre>
+  int m;
+  cin >> n >> m;
+  for(int i = 0; i < n; i++)
+    for(int j = 0; j < n; j++)
+      adj[i][j] = 0;
+  for(int i = 0; i < m; i++){
+    int u, v;
+    cin >> u >> v;
+    adj[u][v] = 1;
+    adj[v][u] = 1;
+  }
+  int q;
+  cin >> q;
+  while(q--){
+    int u, v;
+    cin >> u >> v;
+    for(int i = 0; i < n; i++) visited[i] = false;
+    dfs(u);
+    cout << (visited[v] ? "Yes" : "No") << "\n";
+  }
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Removing Digits -->
     <div id="removing-digits" class="snippet-container">
       <div class="snippet-header">
         <h2>Removing Digits</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation20')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp20')">Show Explanation</button>
       </div>
-      <div id="explanation20" class="explanation">
-        This code finds the minimum number of steps to reduce a number to 0 by subtracting one of its digits at each step.
+      <div id="exp20" class="explanation">
+        Subtract one digit at a time from the number until it reaches 0. Try every digit with simple recursion.
       </div>
-      <pre><code>// Find the minimum steps to reduce a number to 0 by removing digits
+      <pre><code>
+// Remove one digit at a time until the number is 0
 #include <iostream>
 #include <climits>
 using namespace std;
-
 int solve(int n){
-    if(n == 0)
-        return 0;
-    int best = INT_MAX;
-    int temp = n;
-    while(temp > 0){
-        int d = temp % 10;
-        temp /= 10;
-        if(d > 0){
-            int steps = 1 + solve(n - d);
-            if(steps < best)
-                best = steps;
-        }
+  if(n == 0) return 0;
+  int best = INT_MAX;
+  int temp = n;
+  while(temp > 0){
+    int d = temp % 10;
+    temp /= 10;
+    if(d > 0){
+      int steps = 1 + solve(n - d);
+      if(steps < best)
+        best = steps;
     }
-    return best;
+  }
+  return best;
 }
-
 int main(){
-    int n;
-    cin >> n;
-    cout << solve(n);
-    return 0;
-}</code></pre>
+  int n;
+  cin >> n;
+  cout << solve(n);
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Knight's Tour -->
     <div id="knights-tour" class="snippet-container">
       <div class="snippet-header">
         <h2>Knight's Tour</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation21')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp21')">Show Explanation</button>
       </div>
-      <div id="explanation21" class="explanation">
-        This code uses backtracking to try to move a knight on an 8×8 chessboard so that it visits every square exactly once.
+      <div id="exp21" class="explanation">
+        Move a knight on a chessboard using simple backtracking until it visits every square once.
       </div>
-      <pre><code>// Try to find a full knight's tour on an 8x8 chessboard
+      <pre><code>
+// Try every move for a knight on an 8x8 board until every square is visited
 #include <iostream>
 using namespace std;
-
 int board[8][8];
-int dx[8] = {2, 1, -1, -2, -2, -1, 1, 2};
-int dy[8] = {1, 2, 2, 1, -1, -2, -2, -1};
-
+int dx[8] = {2,1,-1,-2,-2,-1,1,2};
+int dy[8] = {1,2,2,1,-1,-2,-2,-1};
 bool isValid(int x, int y){
-    return (x >= 0 && x < 8 && y >= 0 && y < 8 && board[x][y] == -1);
+  return (x >= 0 && x < 8 && y >= 0 && y < 8 && board[x][y] == -1);
 }
-
 bool solveTour(int x, int y, int move){
-    if(move == 64)
+  if(move == 64) return true;
+  for(int i = 0; i < 8; i++){
+    int nextX = x + dx[i];
+    int nextY = y + dy[i];
+    if(isValid(nextX, nextY)){
+      board[nextX][nextY] = move;
+      if(solveTour(nextX, nextY, move + 1))
         return true;
-    for(int i = 0; i < 8; i++){
-        int nextX = x + dx[i];
-        int nextY = y + dy[i];
-        if(isValid(nextX, nextY)){
-            board[nextX][nextY] = move;
-            if(solveTour(nextX, nextY, move + 1))
-                return true;
-            board[nextX][nextY] = -1;
-        }
+      board[nextX][nextY] = -1;
     }
-    return false;
+  }
+  return false;
 }
-
 int main(){
-    for(int i = 0; i < 8; i++)
-        for(int j = 0; j < 8; j++)
-            board[i][j] = -1;
-    board[0][0] = 0;
-    if(solveTour(0, 0, 1)){
-        for(int i = 0; i < 8; i++){
-            for(int j = 0; j < 8; j++){
-                cout << board[i][j] << "\t";
-            }
-            cout << "\n";
-        }
-    } else {
-        cout << "No solution";
+  for(int i = 0; i < 8; i++)
+    for(int j = 0; j < 8; j++)
+      board[i][j] = -1;
+  board[0][0] = 0;
+  if(solveTour(0,0,1)){
+    for(int i = 0; i < 8; i++){
+      for(int j = 0; j < 8; j++){
+        cout << board[i][j] << "\t";
+      }
+      cout << "\n";
     }
-    return 0;
-}</code></pre>
+  } else {
+    cout << "No solution";
+  }
+  return 0;
+}
+</code></pre>
     </div>
 
     <!-- Labyrinth -->
     <div id="labyrinth" class="snippet-container">
       <div class="snippet-header">
         <h2>Labyrinth</h2>
-        <button class="explain-button" onclick="toggleExplanation('explanation22')">Show Explanation</button>
+        <button class="explain-button" onclick="toggleExplanation('exp22')">Show Explanation</button>
       </div>
-      <div id="explanation22" class="explanation">
-        This code searches a maze (grid) for an exit. The maze uses '#' for walls, 'S' for start, and 'E' for exit.
+      <div id="exp22" class="explanation">
+        Search a maze by moving one cell at a time. Walls are '#' and the exit is 'E'. Start from 'S'.
       </div>
-      <pre><code>// Find a path out of a maze using DFS
+      <pre><code>
+// Use simple DFS to find an exit in a maze
 #include <iostream>
 using namespace std;
-
 int n, m;
 char maze[101][101];
 bool visited[101][101];
-
-bool dfs(int x, int y){
-    if(x < 0 || x >= n || y < 0 || y >= m)
-        return false;
-    if(maze[x][y] == '#' || visited[x][y])
-        return false;
-    if(maze[x][y] == 'E')
-        return true;
-    visited[x][y] = true;
-    if(dfs(x+1, y) || dfs(x-1, y) || dfs(x, y+1) || dfs(x, y-1))
-        return true;
-    return false;
+bool findExit(int x, int y){
+  if(x < 0 || x >= n || y < 0 || y >= m) return false;
+  if(maze[x][y] == '#' || visited[x][y]) return false;
+  if(maze[x][y] == 'E') return true;
+  visited[x][y] = true;
+  if(findExit(x+1,y) || findExit(x-1,y) || findExit(x,y+1) || findExit(x,y-1))
+    return true;
+  return false;
 }
-
 int main(){
-    cin >> n >> m;
-    for(int i = 0; i < n; i++){
-        cin >> maze[i];
+  cin >> n >> m;
+  for(int i = 0; i < n; i++){
+    cin >> maze[i];
+  }
+  int startX, startY;
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < m; j++){
+      if(maze[i][j] == 'S'){
+        startX = i;
+        startY = j;
+      }
     }
-    int startX, startY;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            if(maze[i][j] == 'S'){
-                startX = i;
-                startY = j;
-            }
-        }
-    }
-    cout << (dfs(startX, startY) ? "Path found" : "No path");
-    return 0;
-}</code></pre>
+  }
+  cout << (findExit(startX, startY) ? "Path found" : "No path");
+  return 0;
+}
+</code></pre>
     </div>
-
   </div>
-
   <script>
     function toggleExplanation(id) {
       const elem = document.getElementById(id);
       const isHidden = elem.style.display === "none" || elem.style.display === "";
       elem.style.display = isHidden ? "block" : "none";
-
+      
       const button = event.target;
       button.textContent = isHidden ? "Hide Explanation" : "Show Explanation";
     }
