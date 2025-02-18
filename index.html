@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Simple Algorithm Solutions</title>
+  <title>Really Simple Algorithm Solutions</title>
   <style>
     :root {
       --primary: #3b82f6;
@@ -71,6 +71,13 @@
     .explain-button:hover {
       background: var(--primary-dark);
     }
+    .problem-statement {
+      padding: 1rem;
+      background: #fff9e6;
+      border-bottom: 1px solid var(--border);
+      color: var(--primary-dark);
+      font-size: 1rem;
+    }
     .explanation {
       display: none;
       padding: 1rem;
@@ -138,7 +145,7 @@
 <body>
   <div class="header">
     <h1>Really Simple Algorithm Solutions</h1>
-    <p>The easiest (if very inefficient) ways to solve each problem.</p>
+    <p>The easiest (even if very inefficient) ways to solve each problem.</p>
   </div>
   <nav class="problem-nav">
     <h3>Problems</h3>
@@ -174,11 +181,13 @@
         <h2>Compute Fibonacci</h2>
         <button class="explain-button" onclick="toggleExplanation('exp1')">Show Explanation</button>
       </div>
-      <div id="exp1" class="explanation">
-        This solution uses a very simple loop. It starts with 0 and 1 and then adds the two previous numbers to get the next one.
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given a number n, compute the nth Fibonacci number (where the sequence starts at 0, 1, 1, 2, 3, …).
       </div>
-      <pre><code>
-// Very simple Fibonacci: add two numbers repeatedly
+      <div id="exp1" class="explanation">
+        <strong>Solution Explanation:</strong> We use a simple loop starting with 0 and 1, then repeatedly add the two previous numbers to get the next Fibonacci number.
+      </div>
+      <pre><code>// Very simple Fibonacci: add two numbers repeatedly
 #include <iostream>
 using namespace std;
 int main() {
@@ -203,11 +212,13 @@ int main() {
         <h2>Missing Number</h2>
         <button class="explain-button" onclick="toggleExplanation('exp2')">Show Explanation</button>
       </div>
-      <div id="exp2" class="explanation">
-        Check every number from 1 to n. For each number, look through the list to see if it is there.
+      <div class="problem-statement">
+        <strong>Problem:</strong> You are given n and a list of n-1 numbers from 1 to n. Find the one number that is missing.
       </div>
-      <pre><code>
-// Check every number 1 to n to find the missing one
+      <div id="exp2" class="explanation">
+        <strong>Solution Explanation:</strong> We check every number from 1 to n by scanning the list to see which number is not present.
+      </div>
+      <pre><code>// Check every number 1 to n to find the missing one
 #include <iostream>
 using namespace std;
 int main() {
@@ -238,8 +249,11 @@ int main() {
         <h2>Repetitions</h2>
         <button class="explain-button" onclick="toggleExplanation('exp3')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given a sentence, identify and print the letters that appear more than once.
+      </div>
       <div id="exp3" class="explanation">
-        Look at each letter in a sentence and, with two loops, count if it appears more than once.
+        <strong>Solution Explanation:</strong> For each letter in the string, we count its occurrences using nested loops.
       </div>
       <pre><code>
 // For each letter, count how many times it shows up
@@ -273,8 +287,11 @@ int main() {
         <h2>Is Subsequence</h2>
         <button class="explain-button" onclick="toggleExplanation('exp4')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given two strings, check whether the second string appears in the first string in order (not necessarily consecutively).
+      </div>
       <div id="exp4" class="explanation">
-        Go through the first word and try to match each letter of the second word, one by one.
+        <strong>Solution Explanation:</strong> We traverse the first string and try to match each letter of the second string one by one.
       </div>
       <pre><code>
 // Check if every letter of t appears in s in order
@@ -302,8 +319,11 @@ int main() {
         <h2>Increasing Array</h2>
         <button class="explain-button" onclick="toggleExplanation('exp5')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given an array, make it non-decreasing by increasing elements. Count the total increments needed.
+      </div>
       <div id="exp5" class="explanation">
-        Check each number; if it is less than the previous, add enough to make it equal.
+        <strong>Solution Explanation:</strong> For every element that is smaller than its previous element, we add the difference to make it equal.
       </div>
       <pre><code>
 // Increase numbers to make the array non-decreasing
@@ -335,8 +355,11 @@ int main(){
         <h2>Sum of Two Values</h2>
         <button class="explain-button" onclick="toggleExplanation('exp6')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given a list of numbers and a target value, find two distinct numbers that add up to the target.
+      </div>
       <div id="exp6" class="explanation">
-        Try every pair of numbers. If their sum equals the target, print their positions.
+        <strong>Solution Explanation:</strong> We try every pair of numbers; when we find a pair whose sum equals the target, we print their indices.
       </div>
       <pre><code>
 // Check every pair to see if they add up to target
@@ -369,8 +392,11 @@ int main(){
         <h2>Permutations</h2>
         <button class="explain-button" onclick="toggleExplanation('exp7')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given a word, list all possible arrangements (permutations) of its letters.
+      </div>
       <div id="exp7" class="explanation">
-        Swap each letter with every other letter to print all arrangements.
+        <strong>Solution Explanation:</strong> We use recursion and swap letters to generate every possible ordering of the characters.
       </div>
       <pre><code>
 // Print every rearrangement of a word (brute force)
@@ -409,8 +435,11 @@ int main(){
         <h2>Two Knights</h2>
         <button class="explain-button" onclick="toggleExplanation('exp8')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> On an n×n chessboard, count how many ways you can place two knights so that they do not attack each other.
+      </div>
       <div id="exp8" class="explanation">
-        Check every pair of board positions. Count the pair if the knights do not attack each other.
+        <strong>Solution Explanation:</strong> We check every possible pair of board positions and count it if the two knights do not threaten each other.
       </div>
       <pre><code>
 // Count placements for two knights on an n x n board (brute force)
@@ -448,8 +477,11 @@ int main(){
         <h2>Maximum Subarray Sum</h2>
         <button class="explain-button" onclick="toggleExplanation('exp9')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given an array, find the maximum sum obtainable by summing a contiguous block of elements.
+      </div>
       <div id="exp9" class="explanation">
-        Try every possible subarray and keep the largest total you can get.
+        <strong>Solution Explanation:</strong> We try every possible subarray using three nested loops and keep track of the highest sum.
       </div>
       <pre><code>
 // Try all subarrays and remember the biggest sum
@@ -485,8 +517,11 @@ int main(){
         <h2>Fractional Knapsack</h2>
         <button class="explain-button" onclick="toggleExplanation('exp10')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given items with weights and values and a bag with limited capacity, choose fractions of items to maximize total value.
+      </div>
       <div id="exp10" class="explanation">
-        Try simple fractions (like 0, 0.1, 0.2, …, 1) for each item to see which mix gives the best value.
+        <strong>Solution Explanation:</strong> We try fixed fractions (0, 0.1, …, 1) for each item using recursion and update the best total value.
       </div>
       <pre><code>
 // Try fractions of each item (using a fixed step) to get best value
@@ -528,8 +563,11 @@ int main(){
         <h2>Counting Rooms</h2>
         <button class="explain-button" onclick="toggleExplanation('exp11')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given a grid representing a map (with '.' as open space and '#' as walls), count the number of connected open areas (rooms).
+      </div>
       <div id="exp11" class="explanation">
-        Look at every cell. When you find an open cell ('.'), use simple recursion to mark its whole room.
+        <strong>Solution Explanation:</strong> For every unvisited open cell, we use recursion (DFS) to mark the whole room and count it.
       </div>
       <pre><code>
 // Count rooms by filling each connected area
@@ -572,8 +610,11 @@ int main(){
         <h2>Josephus Problem</h2>
         <button class="explain-button" onclick="toggleExplanation('exp12')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> In a circle of n people, remove every kth person until only one remains. Output the survivor.
+      </div>
       <div id="exp12" class="explanation">
-        Remove every kth person from a circle until one person is left. This solution shifts the array each time.
+        <strong>Solution Explanation:</strong> We simulate the process by using an array and shifting the elements every time a person is removed.
       </div>
       <pre><code>
 // Remove every kth person until one remains
@@ -606,8 +647,11 @@ int main(){
         <h2>Tasks and Deadlines</h2>
         <button class="explain-button" onclick="toggleExplanation('exp13')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given tasks with deadlines and profits, determine the order of tasks that maximizes total profit.
+      </div>
       <div id="exp13" class="explanation">
-        Try every order of tasks by swapping them. Check the profit for each order.
+        <strong>Solution Explanation:</strong> We try every permutation (order) of tasks using recursion and swapping, then calculate the profit for each order.
       </div>
       <pre><code>
 // Try every order (permutation) of tasks to get maximum profit
@@ -656,8 +700,11 @@ int main(){
         <h2>Restaurant Customers</h2>
         <button class="explain-button" onclick="toggleExplanation('exp14')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given the arrival and departure times of customers, determine the maximum number of customers present at any one time.
+      </div>
       <div id="exp14" class="explanation">
-        Check every time unit between the smallest start and largest finish to count how many customers are present.
+        <strong>Solution Explanation:</strong> We find the minimum start and maximum finish times and check each time unit for the count of customers.
       </div>
       <pre><code>
 // Count customers at each time unit to find the maximum number present
@@ -695,8 +742,11 @@ int main(){
         <h2>Increasing Subsequence</h2>
         <button class="explain-button" onclick="toggleExplanation('exp15')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given an array, find the length of the longest subsequence where the numbers are in strictly increasing order.
+      </div>
       <div id="exp15" class="explanation">
-        Try every way (include or skip each number) to build a sequence that only goes up.
+        <strong>Solution Explanation:</strong> We try both including and skipping each number using recursion, keeping track of the longest valid subsequence.
       </div>
       <pre><code>
 // Try all ways to pick numbers so they are in increasing order
@@ -710,7 +760,7 @@ void dfs(int i, int last, int count, int n, int arr[]){
   }
   // Skip this number
   dfs(i+1, last, count, n, arr);
-  // Include this number if it is bigger than the last chosen
+  // Include this number if it is larger than the last chosen
   if(arr[i] > last)
     dfs(i+1, arr[i], count+1, n, arr);
 }
@@ -734,8 +784,11 @@ int main(){
         <h2>Minimizing Coins</h2>
         <button class="explain-button" onclick="toggleExplanation('exp16')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given coin denominations and a target amount, find the minimum number of coins needed to make that amount.
+      </div>
       <div id="exp16" class="explanation">
-        Try every way to combine coins to reach the amount. Choose the combination that uses the fewest coins.
+        <strong>Solution Explanation:</strong> We try every combination of coins recursively (brute force) and choose the combination with the fewest coins.
       </div>
       <pre><code>
 // Try all coin combinations (very brute force)
@@ -774,8 +827,11 @@ int main(){
         <h2>Jump Game II</h2>
         <button class="explain-button" onclick="toggleExplanation('exp17')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given an array where each element is the maximum jump length from that position, determine the minimum number of jumps needed to reach the end.
+      </div>
       <div id="exp17" class="explanation">
-        Try every possible jump from the current position until you reach the end. Count the number of jumps.
+        <strong>Solution Explanation:</strong> We use recursion to try every possible jump from the current index until the end is reached and keep the minimum jump count.
       </div>
       <pre><code>
 // Try every jump (brute force) to reach the end of the array
@@ -813,8 +869,11 @@ int main(){
         <h2>Grid Paths</h2>
         <button class="explain-button" onclick="toggleExplanation('exp18')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Count the number of ways to travel from the top left to the bottom right of a grid if you can only move right or down.
+      </div>
       <div id="exp18" class="explanation">
-        Count all ways to go from the top left to the bottom right of a grid by only moving right or down.
+        <strong>Solution Explanation:</strong> We use a simple recursive function to add the number of paths from moving right and down.
       </div>
       <pre><code>
 // Count paths in a grid (only right and down moves)
@@ -842,8 +901,11 @@ int main(){
         <h2>Planets Queries</h2>
         <button class="explain-button" onclick="toggleExplanation('exp19')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given a set of connections between nodes (planets), answer queries to check if two nodes are connected.
+      </div>
       <div id="exp19" class="explanation">
-        Use a simple matrix to record connections and do a basic depth-first search to see if two nodes are connected.
+        <strong>Solution Explanation:</strong> We store connections in an adjacency matrix and use a simple DFS to see if one node can reach another.
       </div>
       <pre><code>
 // Check if two nodes are connected using a basic DFS on a matrix
@@ -891,8 +953,11 @@ int main(){
         <h2>Removing Digits</h2>
         <button class="explain-button" onclick="toggleExplanation('exp20')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given a number, reduce it to 0 by subtracting one of its digits at a time; find the minimum number of steps.
+      </div>
       <div id="exp20" class="explanation">
-        Subtract one digit at a time from the number until it reaches 0. Try every digit with simple recursion.
+        <strong>Solution Explanation:</strong> We use recursion to try subtracting each nonzero digit until the number reaches 0, and we pick the fewest steps.
       </div>
       <pre><code>
 // Remove one digit at a time until the number is 0
@@ -929,8 +994,11 @@ int main(){
         <h2>Knight's Tour</h2>
         <button class="explain-button" onclick="toggleExplanation('exp21')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Find a sequence of moves for a knight on an 8×8 chessboard such that it visits every square exactly once.
+      </div>
       <div id="exp21" class="explanation">
-        Move a knight on a chessboard using simple backtracking until it visits every square once.
+        <strong>Solution Explanation:</strong> We use a very basic backtracking method to try every possible knight move until we fill the board.
       </div>
       <pre><code>
 // Try every move for a knight on an 8x8 board until every square is visited
@@ -982,8 +1050,11 @@ int main(){
         <h2>Labyrinth</h2>
         <button class="explain-button" onclick="toggleExplanation('exp22')">Show Explanation</button>
       </div>
+      <div class="problem-statement">
+        <strong>Problem:</strong> Given a maze (grid) with walls (#), a starting point (S), and an exit (E), determine if there is a path from S to E.
+      </div>
       <div id="exp22" class="explanation">
-        Search a maze by moving one cell at a time. Walls are '#' and the exit is 'E'. Start from 'S'.
+        <strong>Solution Explanation:</strong> We use a simple DFS to search from the starting cell for the exit, avoiding walls.
       </div>
       <pre><code>
 // Use simple DFS to find an exit in a maze
@@ -1026,7 +1097,6 @@ int main(){
       const elem = document.getElementById(id);
       const isHidden = elem.style.display === "none" || elem.style.display === "";
       elem.style.display = isHidden ? "block" : "none";
-
       const button = event.target;
       button.textContent = isHidden ? "Hide Explanation" : "Show Explanation";
     }
