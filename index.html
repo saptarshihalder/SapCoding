@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Really Simple Algorithm Solutions</title>
+  <title>Simple Algorithm Solutions</title>
   <style>
     :root {
       --primary: #3b82f6;
@@ -32,7 +32,7 @@
     }
     .header p {
       color: var(--secondary);
-      margin: 0.5rem 0 0;
+      margin: 0.5rem 0 1rem;
     }
     .container {
       max-width: 1200px;
@@ -140,12 +140,29 @@
         font-size: 1.75rem;
       }
     }
+    /* Difficulty coloring for non-code text */
+    .snippet-container.easy .snippet-header h2,
+    .snippet-container.easy .problem-statement,
+    .snippet-container.easy .explanation {
+      color: green !important;
+    }
+    .snippet-container.medium .snippet-header h2,
+    .snippet-container.medium .problem-statement,
+    .snippet-container.medium .explanation {
+      color: yellow !important;
+    }
+    .snippet-container.hard .snippet-header h2,
+    .snippet-container.hard .problem-statement,
+    .snippet-container.hard .explanation {
+      color: red !important;
+    }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>Simple Algorithm Solutions</h1>
-    <p>When Logic and Mind Breaks, Bruteforce Awakes.</p>
+    <h1> Simple Algorithm Solutions</h1>
+    <p>Where Everthing Gives Up Hope, Brute Force Is Our Cope</p>
+    <button onclick="downloadSolutions()" class="explain-button">Download All Solutions</button>
   </div>
   <nav class="problem-nav">
     <h3>Problems</h3>
@@ -175,8 +192,8 @@
     </ul>
   </nav>
   <div class="container">
-    <!-- Fibonacci (unchanged) -->
-    <div id="fibonacci" class="snippet-container">
+    <!-- Fibonacci (easy) -->
+    <div id="fibonacci" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Compute Fibonacci</h2>
         <button class="explain-button" onclick="toggleExplanation('exp1')">Show Explanation</button>
@@ -206,8 +223,8 @@ int main() {
 </code></pre>
     </div>
 
-    <!-- Missing Number (unchanged) -->
-    <div id="missing-number" class="snippet-container">
+    <!-- Missing Number (easy) -->
+    <div id="missing-number" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Missing Number</h2>
         <button class="explain-button" onclick="toggleExplanation('exp2')">Show Explanation</button>
@@ -243,8 +260,8 @@ int main() {
 </code></pre>
     </div>
 
-    <!-- Repetitions (unchanged) -->
-    <div id="repetitions" class="snippet-container">
+    <!-- Repetitions (easy) -->
+    <div id="repetitions" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Repetitions</h2>
         <button class="explain-button" onclick="toggleExplanation('exp3')">Show Explanation</button>
@@ -281,8 +298,8 @@ int main() {
 </code></pre>
     </div>
 
-    <!-- Is Subsequence (unchanged) -->
-    <div id="subsequence" class="snippet-container">
+    <!-- Is Subsequence (easy) -->
+    <div id="subsequence" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Is Subsequence</h2>
         <button class="explain-button" onclick="toggleExplanation('exp4')">Show Explanation</button>
@@ -313,8 +330,8 @@ int main() {
 </code></pre>
     </div>
 
-    <!-- Increasing Array (unchanged) -->
-    <div id="increasing-array" class="snippet-container">
+    <!-- Increasing Array (easy) -->
+    <div id="increasing-array" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Increasing Array</h2>
         <button class="explain-button" onclick="toggleExplanation('exp5')">Show Explanation</button>
@@ -349,8 +366,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Sum of Two Values (unchanged) -->
-    <div id="sum-two" class="snippet-container">
+    <!-- Sum of Two Values (easy) -->
+    <div id="sum-two" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Sum of Two Values</h2>
         <button class="explain-button" onclick="toggleExplanation('exp6')">Show Explanation</button>
@@ -386,8 +403,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Permutations (unchanged) -->
-    <div id="permutations" class="snippet-container">
+    <!-- Permutations (medium) -->
+    <div id="permutations" class="snippet-container medium">
       <div class="snippet-header">
         <h2>Permutations</h2>
         <button class="explain-button" onclick="toggleExplanation('exp7')">Show Explanation</button>
@@ -429,8 +446,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Two Knights (unchanged) -->
-    <div id="two-knights" class="snippet-container">
+    <!-- Two Knights (medium) -->
+    <div id="two-knights" class="snippet-container medium">
       <div class="snippet-header">
         <h2>Two Knights</h2>
         <button class="explain-button" onclick="toggleExplanation('exp8')">Show Explanation</button>
@@ -471,8 +488,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Maximum Subarray Sum (unchanged) -->
-    <div id="max-subarray" class="snippet-container">
+    <!-- Maximum Subarray Sum (easy) -->
+    <div id="max-subarray" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Maximum Subarray Sum</h2>
         <button class="explain-button" onclick="toggleExplanation('exp9')">Show Explanation</button>
@@ -511,8 +528,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Fractional Knapsack (unchanged) -->
-    <div id="knapsack" class="snippet-container">
+    <!-- Fractional Knapsack (medium) -->
+    <div id="knapsack" class="snippet-container medium">
       <div class="snippet-header">
         <h2>Fractional Knapsack</h2>
         <button class="explain-button" onclick="toggleExplanation('exp10')">Show Explanation</button>
@@ -557,8 +574,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Counting Rooms (Brute Force Iterative Flood Fill) -->
-    <div id="counting-rooms" class="snippet-container">
+    <!-- Counting Rooms (hard) -->
+    <div id="counting-rooms" class="snippet-container hard">
       <div class="snippet-header">
         <h2>Counting Rooms</h2>
         <button class="explain-button" onclick="toggleExplanation('exp11')">Show Explanation</button>
@@ -621,8 +638,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Josephus Problem (unchanged) -->
-    <div id="josephus" class="snippet-container">
+    <!-- Josephus Problem (easy) -->
+    <div id="josephus" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Josephus Problem</h2>
         <button class="explain-button" onclick="toggleExplanation('exp12')">Show Explanation</button>
@@ -658,8 +675,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Tasks and Deadlines (unchanged) -->
-    <div id="tasks" class="snippet-container">
+    <!-- Tasks and Deadlines (medium) -->
+    <div id="tasks" class="snippet-container medium">
       <div class="snippet-header">
         <h2>Tasks and Deadlines</h2>
         <button class="explain-button" onclick="toggleExplanation('exp13')">Show Explanation</button>
@@ -711,8 +728,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Restaurant Customers (unchanged) -->
-    <div id="restaurant" class="snippet-container">
+    <!-- Restaurant Customers (easy) -->
+    <div id="restaurant" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Restaurant Customers</h2>
         <button class="explain-button" onclick="toggleExplanation('exp14')">Show Explanation</button>
@@ -753,8 +770,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Increasing Subsequence (unchanged) -->
-    <div id="increasing-subseq" class="snippet-container">
+    <!-- Increasing Subsequence (medium) -->
+    <div id="increasing-subseq" class="snippet-container medium">
       <div class="snippet-header">
         <h2>Increasing Subsequence</h2>
         <button class="explain-button" onclick="toggleExplanation('exp15')">Show Explanation</button>
@@ -795,8 +812,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Minimizing Coins (unchanged) -->
-    <div id="min-coins" class="snippet-container">
+    <!-- Minimizing Coins (medium) -->
+    <div id="min-coins" class="snippet-container medium">
       <div class="snippet-header">
         <h2>Minimizing Coins</h2>
         <button class="explain-button" onclick="toggleExplanation('exp16')">Show Explanation</button>
@@ -838,8 +855,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Jump Game II (unchanged) -->
-    <div id="jump-game" class="snippet-container">
+    <!-- Jump Game II (medium) -->
+    <div id="jump-game" class="snippet-container medium">
       <div class="snippet-header">
         <h2>Jump Game II</h2>
         <button class="explain-button" onclick="toggleExplanation('exp17')">Show Explanation</button>
@@ -880,8 +897,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Grid Paths (unchanged) -->
-    <div id="grid-paths" class="snippet-container">
+    <!-- Grid Paths (medium) -->
+    <div id="grid-paths" class="snippet-container medium">
       <div class="snippet-header">
         <h2>Grid Paths</h2>
         <button class="explain-button" onclick="toggleExplanation('exp18')">Show Explanation</button>
@@ -912,8 +929,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Planets Queries (Brute Force Iterative Transitive Closure) -->
-    <div id="planets" class="snippet-container">
+    <!-- Planets Queries (medium) -->
+    <div id="planets" class="snippet-container medium">
       <div class="snippet-header">
         <h2>Planets Queries</h2>
         <button class="explain-button" onclick="toggleExplanation('exp19')">Show Explanation</button>
@@ -971,8 +988,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Removing Digits (unchanged) -->
-    <div id="removing-digits" class="snippet-container">
+    <!-- Removing Digits (easy) -->
+    <div id="removing-digits" class="snippet-container easy">
       <div class="snippet-header">
         <h2>Removing Digits</h2>
         <button class="explain-button" onclick="toggleExplanation('exp20')">Show Explanation</button>
@@ -1012,8 +1029,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Knight's Tour (unchanged) -->
-    <div id="knights-tour" class="snippet-container">
+    <!-- Knight's Tour (hard) -->
+    <div id="knights-tour" class="snippet-container hard">
       <div class="snippet-header">
         <h2>Knight's Tour</h2>
         <button class="explain-button" onclick="toggleExplanation('exp21')">Show Explanation</button>
@@ -1068,8 +1085,8 @@ int main(){
 </code></pre>
     </div>
 
-    <!-- Labyrinth (Brute-Force Iterative Flood Fill) -->
-    <div id="labyrinth" class="snippet-container">
+    <!-- Labyrinth (hard) -->
+    <div id="labyrinth" class="snippet-container hard">
       <div class="snippet-header">
         <h2>Labyrinth</h2>
         <button class="explain-button" onclick="toggleExplanation('exp22')">Show Explanation</button>
@@ -1143,6 +1160,31 @@ int main(){
       elem.style.display = isHidden ? "block" : "none";
       const button = event.target;
       button.textContent = isHidden ? "Hide Explanation" : "Show Explanation";
+    }
+
+    function downloadSolutions() {
+      let content = "";
+      const snippets = document.querySelectorAll('.snippet-container');
+      snippets.forEach(function(snippet) {
+        const title = snippet.querySelector('.snippet-header h2').textContent.trim();
+        const problem = snippet.querySelector('.problem-statement').textContent.trim();
+        const code = snippet.querySelector('pre code').textContent.trim();
+        content += "====================\n";
+        content += title + "\n";
+        content += "--------------------\n";
+        content += problem + "\n";
+        content += "--------------------\n";
+        content += code + "\n";
+        content += "====================\n\n";
+      });
+      const blob = new Blob([content], {type: "text/plain;charset=utf-8"});
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "algorithm_solutions.txt";
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
   </script>
 </body>
