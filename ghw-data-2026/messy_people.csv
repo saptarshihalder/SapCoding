@@ -1,0 +1,6 @@
+name,email,age,signup_date
+  ALICE smith ,ALICE@example.com,21,2026-09-01
+Bob  JONES,bob@example.com,,01/09/2026
+alice smith,alice@example.com,21,2026-09-01
+ carol lee , Carol@Example.Com ,24,09/03/2026
+Dan Brown,dan@example.com,twenty,04-09-2026
